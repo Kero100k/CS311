@@ -1,20 +1,21 @@
-name : test ci/cd
-on : 
-  push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+name: test
 
-    jobs :
-        job1 :
-            runs-on: ubuntu- latest
-            steps :
-                - name: hello 
-                    runs : echo "hello world"
-        
-        jobs2:
-            needs: job1
-            runs-on: ubuntu-latest
-            steps:
-                - name: hello2
-                    runs: echo "hello world 2"
+on:
+    push:
+        branches:
+            - main
+
+
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+    steps:
+      - name: first job
+        run: echo "hello word"
+
+  job2:
+    needs: job1 
+    runs-on: ubuntu-latest
+    steps:
+      - name: second job
+        run: echo "sdjjlasdcn"
