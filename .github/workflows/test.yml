@@ -1,21 +1,24 @@
-name: test
+name: calc
 
 on:
-    push:
-        branches:
-            - main
-
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
+  workflow_dispatch:
 
 jobs:
-  job1:
+  test:
     runs-on: ubuntu-latest
-    steps:
-      - name: first job
-        run: echo "hello word"
 
-  job2:
-    needs: job1 
-    runs-on: ubuntu-latest
     steps:
-      - name: second job
-        run: echo "sdjjlasdcn"
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Run unit tests
+        run: python -m unittest discover -s tests -v
