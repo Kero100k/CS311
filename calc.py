@@ -10,24 +10,24 @@ def calculate(a, b, operation):
 def main():
     print("Python Calculator")
     print("Type 'exit' to quit.")
-while True:
-    operation = input("Enter operation (+): ").strip()
+    while True:
+        operation = input("Enter operation (+): ").strip()
 
-    if operation.lower() == "exit":
-        print("Goodbye!")
-        break
+        if operation.lower() == "exit":
+            print("Goodbye!")
+            break
 
-    if operation not in ("+"):
-        print("Error: Unsupported operation. Use +")
-        continue
+        if operation not in ("+"):
+            print("Error: Unsupported operation. Use +")
+            continue
 
-    try:
-        a = float(input("Enter first number: "))
-        b = float(input("Enter second number: "))
-        result = calculate(a, b, operation)
-        print("Result:", result)
-    except (ValueError, TypeError, ZeroDivisionError) as error:
-        print("Error:", error)
+        try:
+            a = float(input("Enter first number: "))
+            b = float(input("Enter second number: "))
+            result = calculate(a, b, operation)
+            print("Result:", result)
+        except (ValueError, TypeError, ZeroDivisionError) as error:
+            print("Error:", error)
 
 if __name__ == "__main__":
     main()
