@@ -9,7 +9,6 @@ def calculate(a, b, operation):
 
 def main():
     print("Python Calculator")
-    print("Supported operations: +")
     print("Type 'exit' to quit.")
 while True:
     operation = input("Enter operation (+): ").strip()
